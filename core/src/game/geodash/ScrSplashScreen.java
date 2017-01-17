@@ -84,6 +84,7 @@ public class ScrSplashScreen implements Screen {
         if (bDimOut) {
             fAmbiance -= 0.1;
             if (fAmbiance <= 0) {
+                fAmbiance = 0;
                 game.setScreen(game.scrMenu);
             }
         }

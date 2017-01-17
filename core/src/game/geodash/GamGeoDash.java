@@ -36,7 +36,7 @@ public class GamGeoDash extends Game {
     float Game_Width = 500;
     float Game_Height = 375;
     public static final float PPM = 32;
-    public static boolean bPlayerDead;
+    public static boolean bPlayerDead, bJump;
     public static float fAmbiance = 0;
 
     @Override
@@ -79,7 +79,7 @@ public class GamGeoDash extends Game {
         camera.position.y = MathUtils.clamp(camera.position.y, 100, 400);
 //        System.out.println(scrPlay.getPlayer().getPosition().x);
 //        System.out.println(camera.position.x);
-        System.out.println();
+//        System.out.println();
 
         camera.update();
 
@@ -87,6 +87,7 @@ public class GamGeoDash extends Game {
         shape.setProjectionMatrix(camera.combined);
         b2dr.render(world, camera.combined);
 //        rayHandler.setCombinedMatrix(camera.combined, camera.position.x, camera.position.y, camera.viewportWidth, camera.viewportHeight);
+        rayHandler.setAmbientLight(fAmbiance);
         rayHandler.setCombinedMatrix(camera.combined, camera.position.x , camera.position.y,
                 camera.viewportWidth, camera.viewportHeight);
         rayHandler.updateAndRender();

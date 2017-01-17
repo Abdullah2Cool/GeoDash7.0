@@ -37,7 +37,7 @@ public class ScrMenu implements Screen {
         Gdx.gl.glClearColor(46 / 255f, 210 / 255f, 255 / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         if (bLightUp) {
-            fAmbiance += 0.1;
+            fAmbiance += 0.01;
             if (fAmbiance >= 1) {
                 bLightUp = false;
             }
@@ -46,7 +46,6 @@ public class ScrMenu implements Screen {
             game.setScreen(game.scrPlay);
         }
 //        map.draw(game.camera);
-        rayHandler.setAmbientLight(fAmbiance);
     }
 
     @Override

@@ -16,6 +16,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import box2dLight.RayHandler;
 
 import static game.geodash.GamGeoDash.PPM;
+import static game.geodash.GamGeoDash.bJump;
 
 /**
  * Created by hafiz on 12/13/2016.
@@ -90,11 +91,10 @@ public class Player implements InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {
-        if (keycode == Input.Keys.SPACE) {
-            System.out.println("WORKING");
+
+        if (keycode == Input.Keys.SPACE && bJump) {
             pBody.applyForceToCenter(0, fJumpHeight, false);
-            System.out.println(world.getGravity());
-            System.out.println(fJumpHeight);
+            bJump = false;
         } else if (keycode == Input.Keys.LEFT || keycode == Input.Keys.RIGHT) {
             fSpeed *= -1;
         }
@@ -113,7 +113,10 @@ public class Player implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        pBody.applyForceToCenter(0, fJumpHeight, false);
+        if (bJump) {
+            pBody.applyForceToCenter(0, fJumpHeight, false);
+            bJump = false;
+        }
         return false;
     }
 

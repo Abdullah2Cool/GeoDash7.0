@@ -15,6 +15,7 @@ public class Light {
 
     public Light(RayHandler rayHandler, int nRays, int nDist, float coneDegrees) {
         light = new ConeLight(rayHandler, nRays, Color.GOLD, nDist, 0, 0, 0, coneDegrees);
+//        light.setXray(true);
     }
     void update (Vector2 vPos) {
         light.setPosition(vPos.x, vPos.y);

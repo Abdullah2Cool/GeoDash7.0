@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
 
+import static game.geodash.GamGeoDash.bJump;
 import static game.geodash.GamGeoDash.bPlayerDead;
 
 /**
@@ -28,6 +29,9 @@ public class ContactListener1 implements ContactListener {
             bPlayerDead = true;
         }
 
+        if (CheckContact(a, b, "player", "platform")) {
+            bJump = true;
+        }
     }
 
     @Override

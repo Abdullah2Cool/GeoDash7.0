@@ -56,13 +56,20 @@ public class ScrPlay implements Screen {
             bPlayerDead = false;
         }
         if (bChangeLighting) {
-            rayHandler.setAmbientLight(fAmbiance);
-            fAmbiance += ChangeRate;
-            if (fAmbiance >= 0.9 || fAmbiance <= 0) {
+            if (fAmbiance >= 1) {
+                fAmbiance = 1;
+                ChangeRate *= -1;
+                System.out.println(fAmbiance);
+                System.out.println("Changed");
+                System.out.println();
+            } if (fAmbiance <= 0) {
+                fAmbiance = 0;
                 ChangeRate *= -1;
             }
-        } else {
-            rayHandler.setAmbientLight(0.1f);
+            fAmbiance += ChangeRate;
+//            if (fAmbiance <= 0) {
+//                ChangeRate *= -1;
+//            }
         }
         rayHandler.setCombinedMatrix(game.camera.combined, game.camera.position.x,
                 game.camera.position.y, game.camera.viewportWidth, game.camera.viewportHeight);
