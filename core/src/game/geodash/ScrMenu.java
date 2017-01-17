@@ -24,7 +24,7 @@ public class ScrMenu implements Screen {
         this.game = game;
         rayHandler = game.rayHandler;
         batch = game.batch;
-        map = new Map("map2.tmx", game.world, false);
+//        map = new Map("map2.tmx", game.world, false, game);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class ScrMenu implements Screen {
         if (bLightUp == false) {
             game.setScreen(game.scrPlay);
         }
-        map.draw(game.camera);
+//        map.draw(game.camera);
         rayHandler.setAmbientLight(fAmbiance);
     }
 

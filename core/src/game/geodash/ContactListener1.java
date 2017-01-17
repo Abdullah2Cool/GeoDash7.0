@@ -24,7 +24,7 @@ public class ContactListener1 implements ContactListener {
         if (a.getUserData() == null || b.getUserData() == null) {
             return;
         }
-        if (PlayerSpikeContact(a, b) == true) {
+        if (CheckContact(a, b, "player", "spike")) {
             bPlayerDead = true;
         }
 
@@ -45,9 +45,9 @@ public class ContactListener1 implements ContactListener {
 
     }
 
-    public boolean PlayerSpikeContact(Fixture a, Fixture b) {
-        if (a.getUserData() instanceof Player || b.getUserData() instanceof Player) {
-            if (a.getUserData() instanceof Spikes || b.getUserData() instanceof Spikes) {
+    public boolean CheckContact(Fixture a, Fixture b, String sDef1, String sDef2) {
+        if (a.getUserData() == sDef1 || b.getUserData() == sDef1) {
+            if (a.getUserData() == sDef2 || b.getUserData() == sDef2) {
                 return true;
             }
         }

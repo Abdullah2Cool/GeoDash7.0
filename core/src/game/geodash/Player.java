@@ -40,7 +40,7 @@ public class Player implements InputProcessor {
         fJumpHeight = -world.getGravity().scl(PPM / 2).y;
         System.out.println(fJumpHeight);
         Gdx.input.setInputProcessor(this);
-        light = new Light(rayHandler, 100, 300, 50, pBody);
+        light = new Light(rayHandler, 100, 300, 50);
     }
 
     private Body createBody(Vector2 vPos, float fLength) {
@@ -59,7 +59,7 @@ public class Player implements InputProcessor {
 //        fixDef.restitution = 0.5f;
 
         pBody = world.createBody(def);
-        pBody.createFixture(fixDef).setUserData(this);
+        pBody.createFixture(fixDef).setUserData("player");
         shape.dispose();
         return pBody;
     }
