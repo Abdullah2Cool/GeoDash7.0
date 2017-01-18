@@ -6,6 +6,10 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 
+import static game.geodash.GamGeoDash.sPlatform;
+import static game.geodash.GamGeoDash.sPortal;
+import static game.geodash.GamGeoDash.sSpike;
+
 /**
  * Created by hafiz on 12/13/2016.
  */
@@ -20,13 +24,13 @@ public class Map {
         map = new TmxMapLoader().load(sPath);
         this.world = world;
         tiledMapRenderer = new OrthogonalTiledMapRenderer(map);
-        game.loadObstacles(map.getLayers().get("platforms").getObjects(), "platform");
+        game.loadObstacles(map.getLayers().get("platforms").getObjects(), sPlatform, false);
         if (bObstacles) {
 //            spikes = new Spikes(map, world, "spike");
-            game.loadObstacles(map.getLayers().get("death").getObjects(), "spike");
+            game.loadObstacles(map.getLayers().get("death").getObjects(), sSpike, true);
         }
         if (bPortals) {
-            game.loadObstacles(map.getLayers().get("portals").getObjects(), "portal");
+            game.loadObstacles(map.getLayers().get("portals").getObjects(), sPortal, true);
         }
     }
 

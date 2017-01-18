@@ -18,7 +18,7 @@ import static game.geodash.GamGeoDash.fAmbiance;
 public class ScrPlay implements Screen {
     private GamGeoDash game;
     private Map map;
-    private Player player;
+    public static Player player;
     private SpriteBatch batch;
     private ContactListener1 contactListener;
     private RayHandler rayHandler;

@@ -36,8 +36,9 @@ public class GamGeoDash extends Game {
     float Game_Width = 500;
     float Game_Height = 375;
     public static final float PPM = 32;
-    public static boolean bPlayerDead, bJump;
+    public static boolean bPlayerDead, bJump = true;
     public static float fAmbiance = 0;
+    public static String sPlayer = "player", sSpike = "spike", sPlatform = "platform", sPortal = "portal";
 
     @Override
     public void create() {
@@ -110,7 +111,7 @@ public class GamGeoDash extends Game {
         shape.dispose();
         rayHandler.dispose();
     }
-    public void loadObstacles(MapObjects obstacles, String sUserData) {
+    public void loadObstacles(MapObjects obstacles, String sUserData, boolean isSensor) {
         for (MapObject object : obstacles) {
             Shape shape;
             shape = createPolyLine((PolylineMapObject) object);
@@ -120,6 +121,7 @@ public class GamGeoDash extends Game {
 
             FixtureDef fixDef = new FixtureDef();
             fixDef.density = 1.0f;
+            fixDef.isSensor = isSensor;
             fixDef.shape = shape;
 
             body = world.createBody(def);
