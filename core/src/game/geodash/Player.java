@@ -37,8 +37,8 @@ public class Player implements InputProcessor {
         pBody = createBody(vPos, fLength);
         spPlayer = new Sprite(new Texture(sPath));
 //        fSpeed = 8.2f;
-        fSpeed = 8.2f;
-        fJumpHeight = -world.getGravity().scl(PPM / 2).y;
+        fSpeed = 10f;
+        fJumpHeight = 1600;
         System.out.println(fJumpHeight);
         Gdx.input.setInputProcessor(this);
         light = new Light(rayHandler, 100, 300, 50);
@@ -48,7 +48,7 @@ public class Player implements InputProcessor {
         Body pBody;
         BodyDef def = new BodyDef();
         def.type = BodyDef.BodyType.DynamicBody;
-        def.fixedRotation = false;
+        def.fixedRotation = true;
         def.position.set(vPos.x / PPM, vPos.y / PPM);
 
         PolygonShape shape = new PolygonShape();
@@ -56,7 +56,7 @@ public class Player implements InputProcessor {
 
         FixtureDef fixDef = new FixtureDef();
         fixDef.shape = shape;
-        fixDef.density = 1f;
+        fixDef.density = 1.25f;
 //        fixDef.restitution = 0.5f;
 
         pBody = world.createBody(def);
@@ -78,15 +78,11 @@ public class Player implements InputProcessor {
     }
 
     public void reset() {
-        pBody.setTransform(vInitialPos.x / PPM, vInitialPos.y / PPM, 0);
+//        pBody.setTransform(vInitialPos.x / PPM, vInitialPos.y / PPM, 0);
     }
 
     public Vector2 getPosition() {
         return vPos;
-    }
-
-    public Body getBody() {
-        return pBody;
     }
 
     @Override
