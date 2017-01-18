@@ -78,7 +78,7 @@ public class Player implements InputProcessor {
     }
 
     public void reset() {
-//        pBody.setTransform(vInitialPos.x / PPM, vInitialPos.y / PPM, 0);
+        pBody.setTransform(vInitialPos.x / PPM, vInitialPos.y / PPM, 0);
     }
 
     public Vector2 getPosition() {
