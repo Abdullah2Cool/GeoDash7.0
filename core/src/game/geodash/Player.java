@@ -74,8 +74,9 @@ public class Player {
         vPos.set(pBody.getPosition().scl(PPM));
         batch.draw(spPlayer, vPos.x - 16, vPos.y - 16, spPlayer.getOriginX(), spPlayer.getOriginY(),
                 spPlayer.getWidth(), spPlayer.getHeight(), 1, 1, (float) Math.toDegrees(pBody.getAngle()));
-        move();
+
         light.update(vPos);
+        move();
     }
 
     public void move() {
@@ -100,8 +101,8 @@ public class Player {
         return vPos;
     }
 
-    public void changeImage() {
-        nImgNum = random.nextInt(2) + 1;
+    public void changeImage(int max, int min) {
+        nImgNum = random.nextInt(max) + min;
         spPlayer.setRegion(atlas.findRegion(String.valueOf(nImgNum)));
     }
 }

@@ -36,9 +36,10 @@ public class GamGeoDash extends Game {
     float Game_Width = 500;
     float Game_Height = 375;
     public static final float PPM = 32;
-    public static boolean bPlayerDead, bJump = true;
+    public static boolean bPlayerDead, bJump = true, bBoat = false;
     public static float fAmbiance = 0;
-    public static String sPlayer = "player", sSpike = "spike", sPlatform = "platform", sPortal = "portal";
+    public static String sPlayer = "player", sSpike = "spike", sPlatform = "platform", sBoatPortal = "boatportal",
+            sGravPortal = "gravportal";
 
     @Override
     public void create() {
