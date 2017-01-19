@@ -16,8 +16,8 @@ import static game.geodash.GamGeoDash.fAmbiance;
 /**
  * Created by hafiz on 1/9/2017.
  */
-
 public class ScrSplashScreen implements Screen {
+
     private GamGeoDash game;
     private SpriteBatch batch;
     private RayHandler rayHandler;
@@ -37,7 +37,6 @@ public class ScrSplashScreen implements Screen {
 
     @Override
     public void show() {
-
     }
 
     @Override
@@ -59,7 +58,7 @@ public class ScrSplashScreen implements Screen {
                 bShowLoading = true;
             }
             batch.begin();
-            batch.draw(spLogo, 0, 0,
+            batch.draw(spLogo, -50, 200,
                     spLogo.getOriginX(), spLogo.getOriginY(), spLogo.getWidth(), spLogo.getHeight(),
                     spLogo.getScaleX(), spLogo.getScaleY(), 0);
             batch.end();
@@ -78,7 +77,7 @@ public class ScrSplashScreen implements Screen {
 
             shape.begin(ShapeRenderer.ShapeType.Filled);
             shape.setColor(Color.RED);
-            shape.rect(0, 0, fLoading, 40);
+            shape.rect(150, 200, fLoading, 40);
             shape.end();
         }
         if (bDimOut) {
@@ -88,32 +87,25 @@ public class ScrSplashScreen implements Screen {
                 game.setScreen(game.scrMenu);
             }
         }
-        rayHandler.setAmbientLight(fAmbiance);
     }
-
 
     @Override
     public void resize(int width, int height) {
-
     }
 
     @Override
     public void pause() {
-
     }
 
     @Override
     public void resume() {
-
     }
 
     @Override
     public void hide() {
-
     }
 
     @Override
     public void dispose() {
-
     }
 }
