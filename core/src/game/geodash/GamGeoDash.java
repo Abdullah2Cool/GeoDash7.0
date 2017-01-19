@@ -49,7 +49,6 @@ public class GamGeoDash extends Game {
         world = new World(new Vector2(0, -100), true);
         b2dr = new Box2DDebugRenderer();
         rayHandler = new RayHandler(world);
-        rayHandler.useDiffuseLight(true);
         shape = new ShapeRenderer();
         scrPlay = new ScrPlay(this);
         scrSplashScreen = new ScrSplashScreen(this);
