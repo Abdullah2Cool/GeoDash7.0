@@ -85,7 +85,7 @@ public class Player {
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
             if (bBoat) {
                 pBody.setTransform(pBody.getPosition(), 0);
-                pBody.applyForceToCenter(0, 50, false);
+                pBody.applyForceToCenter(0, 200, false);
             } else if (bJump) {
                 pBody.applyForceToCenter(0, fJumpHeight, false);
                 bJump = false;

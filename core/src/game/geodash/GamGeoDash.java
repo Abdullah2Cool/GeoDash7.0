@@ -90,7 +90,8 @@ public class GamGeoDash extends Game {
         shape.setProjectionMatrix(camera.combined);
         b2dr.render(world, camera.combined);
 //        rayHandler.setCombinedMatrix(camera.combined, camera.position.x, camera.position.y, camera.viewportWidth, camera.viewportHeight);
-        rayHandler.setAmbientLight(fAmbiance, fAmbiance, fAmbiance, fAmbiance);
+//        rayHandler.setAmbientLight(fAmbiance, fAmbiance, fAmbiance, 1);
+        rayHandler.setAmbientLight(fAmbiance);
         rayHandler.setCombinedMatrix(camera.combined, camera.position.x , camera.position.y,
                 camera.viewportWidth, camera.viewportHeight);
         rayHandler.updateAndRender();
