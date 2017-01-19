@@ -17,6 +17,7 @@ import java.util.Random;
 import box2dLight.RayHandler;
 
 import static game.geodash.GamGeoDash.PPM;
+import static game.geodash.GamGeoDash.bBoat;
 import static game.geodash.GamGeoDash.bJump;
 import static game.geodash.GamGeoDash.sPlayer;
 
@@ -81,9 +82,14 @@ public class Player {
 
     public void move() {
         pBody.setLinearVelocity(fSpeed, pBody.getLinearVelocity().y);
-        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && bJump) {
-            pBody.applyForceToCenter(0, fJumpHeight, false);
-            bJump = false;
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+            if (bBoat) {
+                pBody.setTransform(pBody.getPosition(), 0);
+                pBody.applyForceToCenter(0, 50, false);
+            } else if (bJump) {
+                pBody.applyForceToCenter(0, fJumpHeight, false);
+                bJump = false;
+            }
         } else if (Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             fSpeed *= -1;
         }

@@ -49,6 +49,7 @@ public class GamGeoDash extends Game {
         world = new World(new Vector2(0, -100), true);
         b2dr = new Box2DDebugRenderer();
         rayHandler = new RayHandler(world);
+        rayHandler.useDiffuseLight(true);
         shape = new ShapeRenderer();
         scrPlay = new ScrPlay(this);
         scrSplashScreen = new ScrSplashScreen(this);
@@ -89,7 +90,7 @@ public class GamGeoDash extends Game {
         shape.setProjectionMatrix(camera.combined);
         b2dr.render(world, camera.combined);
 //        rayHandler.setCombinedMatrix(camera.combined, camera.position.x, camera.position.y, camera.viewportWidth, camera.viewportHeight);
-        rayHandler.setAmbientLight(fAmbiance);
+        rayHandler.setAmbientLight(fAmbiance, fAmbiance, fAmbiance, fAmbiance);
         rayHandler.setCombinedMatrix(camera.combined, camera.position.x , camera.position.y,
                 camera.viewportWidth, camera.viewportHeight);
         rayHandler.updateAndRender();
