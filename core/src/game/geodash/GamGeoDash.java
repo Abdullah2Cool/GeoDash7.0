@@ -27,7 +27,7 @@ public class GamGeoDash extends Game {
     ScrSplashScreen scrSplashScreen;
     ScrMenu scrMenu;
     OrthographicCamera camera;
-    World world;
+    public static World world;
     Box2DDebugRenderer b2dr;
     SpriteBatch batch;
     RayHandler rayHandler;
@@ -36,7 +36,7 @@ public class GamGeoDash extends Game {
     float Game_Width = 500;
     float Game_Height = 375;
     public static final float PPM = 32;
-    public static boolean bPlayerDead, bJump = true, bBoat = false;
+    public static boolean bPlayerDead, bJump = true, bBoat = false, bFlipGrav = false;
     public static float fAmbiance = 0;
     public static String sPlayer = "player", sSpike = "spike", sPlatform = "platform", sBoatPortal = "boatportal",
             sGravPortal = "gravportal";
@@ -78,7 +78,7 @@ public class GamGeoDash extends Game {
         camera.position.x = scrPlay.getPlayer().getPosition().x + 200;
         camera.position.y = scrPlay.getPlayer().getPosition().y + 50;
         camera.position.x = MathUtils.clamp(camera.position.x, 250, 14500);
-        camera.position.y = MathUtils.clamp(camera.position.y, 100, 400);
+        camera.position.y = MathUtils.clamp(camera.position.y, 100, 450);
 //        System.out.println(scrPlay.getPlayer().getPosition().x);
 //        System.out.println(camera.position.x);
 //        System.out.println();

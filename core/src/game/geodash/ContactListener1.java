@@ -1,5 +1,6 @@
 package game.geodash;
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
@@ -7,12 +8,14 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
 
 import static game.geodash.GamGeoDash.bBoat;
+import static game.geodash.GamGeoDash.bFlipGrav;
 import static game.geodash.GamGeoDash.bJump;
-import static game.geodash.GamGeoDash.bPlayerDead;
 import static game.geodash.GamGeoDash.sBoatPortal;
+import static game.geodash.GamGeoDash.sGravPortal;
 import static game.geodash.GamGeoDash.sPlatform;
 import static game.geodash.GamGeoDash.sPlayer;
 import static game.geodash.GamGeoDash.sSpike;
+import static game.geodash.GamGeoDash.world;
 import static game.geodash.ScrPlay.player;
 
 /**
@@ -33,7 +36,7 @@ public class ContactListener1 implements ContactListener {
         }
         if (CheckContact(a, b, sPlayer, sSpike)) {
             player.changeImage(2, 1);
-            bPlayerDead = true;
+//            bPlayerDead = true;
         }
 
         if (CheckContact(a, b, sPlayer, sPlatform) && bJump == false) {
@@ -47,6 +50,16 @@ public class ContactListener1 implements ContactListener {
             } else if (bBoat == true) {
                 player.changeImage(2, 1);
                 bBoat = false;
+            }
+            System.out.println("Boat Time");
+        }
+        if (CheckContact(a, b, sPlayer, sGravPortal)) {
+            if (bFlipGrav == false) {
+                world.setGravity(new Vector2(0, world.getGravity().y * -1));
+                bFlipGrav = true;
+            } else if (bFlipGrav == true) {
+                world.setGravity(new Vector2(0, world.getGravity().y * -1));
+                bFlipGrav = false;
             }
             System.out.println("Boat Time");
         }

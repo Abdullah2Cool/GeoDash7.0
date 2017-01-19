@@ -6,6 +6,7 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 
+import static game.geodash.GamGeoDash.sGravPortal;
 import static game.geodash.GamGeoDash.sPlatform;
 import static game.geodash.GamGeoDash.sBoatPortal;
 import static game.geodash.GamGeoDash.sSpike;
@@ -31,6 +32,7 @@ public class Map {
         }
         if (bPortals) {
             game.loadObstacles(map.getLayers().get("boat").getObjects(), sBoatPortal, true);
+            game.loadObstacles(map.getLayers().get("gravity").getObjects(), sGravPortal, true);
         }
     }
 

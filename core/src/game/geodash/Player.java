@@ -18,6 +18,7 @@ import box2dLight.RayHandler;
 
 import static game.geodash.GamGeoDash.PPM;
 import static game.geodash.GamGeoDash.bBoat;
+import static game.geodash.GamGeoDash.bFlipGrav;
 import static game.geodash.GamGeoDash.bJump;
 import static game.geodash.GamGeoDash.sPlayer;
 
@@ -87,7 +88,11 @@ public class Player {
                 pBody.setTransform(pBody.getPosition(), 0);
                 pBody.applyForceToCenter(0, 200, false);
             } else if (bJump) {
-                pBody.applyForceToCenter(0, fJumpHeight, false);
+                if (bFlipGrav) {
+                    pBody.applyForceToCenter(0, -fJumpHeight, false);
+                } else {
+                    pBody.applyForceToCenter(0, fJumpHeight, false);
+                }
                 bJump = false;
             }
         } else if (Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
