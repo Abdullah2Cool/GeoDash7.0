@@ -135,7 +135,6 @@ public class GamGeoDash extends Game {
     public ChainShape createPolyLine(PolylineMapObject obstacle) {
         float[] vertices = obstacle.getPolyline().getTransformedVertices();
         Vector2[] worldVertices = new Vector2[vertices.length / 2];
-
         for (int i = 0; i < worldVertices.length; i++) {
             worldVertices[i] = new Vector2(vertices[i * 2] / PPM, vertices[i * 2 + 1] / PPM);
         }
