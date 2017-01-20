@@ -11,7 +11,7 @@
  </tileset>
  <layer name="Platforms" width="500" height="25">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup name="platforms">
@@ -90,7 +90,7 @@
   <object id="780" x="13080" y="120">
    <polyline points="0,0 0,30 210,30 210,0 0,0"/>
   </object>
-  <object id="781" x="13110" y="270">
+  <object id="781" x="13110" y="300">
    <polyline points="0,0 0,-30 150,-30 150,0 0,0"/>
   </object>
   <object id="785" x="13410" y="270">
@@ -662,19 +662,19 @@
   <object id="700" x="12990" y="120" rotation="-180">
    <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
   </object>
-  <object id="701" x="13110" y="240" rotation="-360">
+  <object id="701" x="13110" y="270" rotation="-360">
    <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
   </object>
-  <object id="703" x="13140" y="240" rotation="-360">
+  <object id="703" x="13140" y="270" rotation="-360">
    <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
   </object>
-  <object id="704" x="13170" y="240" rotation="-360">
+  <object id="704" x="13170" y="270" rotation="-360">
    <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
   </object>
-  <object id="705" x="13200" y="240" rotation="-360">
+  <object id="705" x="13200" y="270" rotation="-360">
    <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
   </object>
-  <object id="706" x="13230" y="240" rotation="-360">
+  <object id="706" x="13230" y="270" rotation="-360">
    <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
   </object>
   <object id="707" x="13590" y="630" rotation="-360">
@@ -740,9 +740,6 @@
   <object id="738" x="14550" y="600" rotation="-360">
    <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
   </object>
-  <object id="761" x="5370" y="630">
-   <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
-  </object>
   <object id="762" x="5340" y="630">
    <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
   </object>
@@ -755,19 +752,10 @@
   <object id="777" x="12270" y="630">
    <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
   </object>
-  <object id="778" x="12300" y="630">
-   <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
-  </object>
   <object id="782" x="13440" y="120" rotation="-180">
    <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
   </object>
-  <object id="783" x="13470" y="120" rotation="-180">
-   <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
-  </object>
   <object id="787" x="14940" y="600" rotation="-360">
-   <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
-  </object>
-  <object id="788" x="14970" y="600" rotation="-360">
    <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
   </object>
   <object id="826" x="1170" y="630">
@@ -809,9 +797,9 @@
  </objectgroup>
  <objectgroup name="gravity">
   <object id="822" x="12300" y="480">
-   <polyline points="0,0 0,120"/>
+   <polyline points="0,0 0,147"/>
   </object>
-  <object id="823" x="13440" y="150">
+  <object id="823" x="13410" y="150">
    <polyline points="0,0 0,120"/>
   </object>
  </objectgroup>
@@ -825,7 +813,7 @@
    <polyline points="0,0 0,120"/>
   </object>
   <object id="851" x="5370" y="480">
-   <polyline points="0,0 0,120"/>
+   <polyline points="0,0 0,150"/>
   </object>
  </objectgroup>
 </map>

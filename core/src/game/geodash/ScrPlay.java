@@ -23,14 +23,14 @@ public class ScrPlay implements Screen {
     private ContactListener1 contactListener;
     private RayHandler rayHandler;
     private float ChangeRate = 0.001f;
-    boolean bChangeLighting = false;
+    boolean bChangeLighting = true;
 
     public ScrPlay(GamGeoDash game) {
         this.game = game;
         map = new Map("map.tmx", game.world, true, true, game);
         rayHandler = game.rayHandler;
 //        player = new Player(new Vector2(200, 200), 32, this.game.world, "geoDash.png", rayHandler);
-        player = new Player(new Vector2(50, 220), 32, this.game.world, "geoDash.png", rayHandler);
+        player = new Player(new Vector2(50, 220), 32, this.game.world, rayHandler);
         batch = game.batch;
         contactListener = new ContactListener1();
         this.game.world.setContactListener(contactListener);
@@ -62,8 +62,7 @@ public class ScrPlay implements Screen {
                 System.out.println(fAmbiance);
                 System.out.println("Changed");
                 System.out.println();
-            } if (fAmbiance <= 0) {
-                fAmbiance = 0;
+            } if (fAmbiance <= 0.3) {
                 ChangeRate *= -1;
             }
             fAmbiance += ChangeRate;

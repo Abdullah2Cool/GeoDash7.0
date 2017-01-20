@@ -10,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.Manifold;
 import static game.geodash.GamGeoDash.bBoat;
 import static game.geodash.GamGeoDash.bFlipGrav;
 import static game.geodash.GamGeoDash.bJump;
+import static game.geodash.GamGeoDash.bPlayerDead;
 import static game.geodash.GamGeoDash.sBoatPortal;
 import static game.geodash.GamGeoDash.sGravPortal;
 import static game.geodash.GamGeoDash.sPlatform;
@@ -35,8 +36,9 @@ public class ContactListener1 implements ContactListener {
             return;
         }
         if (CheckContact(a, b, sPlayer, sSpike)) {
-            player.changeImage(2, 1);
-//            bPlayerDead = true;
+            bPlayerDead = true;
+
+
         }
 
         if (CheckContact(a, b, sPlayer, sPlatform) && bJump == false) {

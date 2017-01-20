@@ -37,15 +37,15 @@ public class Player {
     private int nImgNum = 1;
     private Random random;
 
-    public Player(Vector2 vPos, float fLength, World world, String sPath, RayHandler rayHandler) {
+    public Player(Vector2 vPos, float fLength, World world, RayHandler rayHandler) {
         this.vPos = new Vector2(vPos);
         vInitialPos = new Vector2(vPos);
         this.world = world;
         pBody = createBody(vPos, fLength);
         atlas = new TextureAtlas("packedtextures.atlas");
         spPlayer = new Sprite(atlas.findRegion(String.valueOf(nImgNum)));
-        fSpeed = 10f;
-        fJumpHeight = 1600;
+        fSpeed = 9f;
+        fJumpHeight = 1700;
         System.out.println(fJumpHeight);
         light = new Light(rayHandler, 100, 300, 50);
         random = new Random();
@@ -95,17 +95,29 @@ public class Player {
                 }
                 bJump = false;
             }
-        } else if (Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT) || Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
             fSpeed *= -1;
         }
-        if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && bJump) {
-            pBody.applyForceToCenter(0, fJumpHeight, false);
-            bJump = false;
+        if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+            if (bBoat) {
+                pBody.setTransform(pBody.getPosition(), 0);
+                pBody.applyForceToCenter(0, 200, false);
+            } else if (bJump) {
+                if (bFlipGrav) {
+                    pBody.applyForceToCenter(0, -fJumpHeight, false);
+                } else {
+                    pBody.applyForceToCenter(0, fJumpHeight, false);
+                }
+                bJump = false;
+            }
         }
     }
 
     public void reset() {
+        changeImage(2, 1);
         pBody.setTransform(vInitialPos.x / PPM, vInitialPos.y / PPM, 0);
+        bBoat = false;
+        world.setGravity(new Vector2(0, -100));
     }
 
     public Vector2 getPosition() {

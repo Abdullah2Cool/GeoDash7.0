@@ -77,7 +77,7 @@ public class GamGeoDash extends Game {
         world.step(1 / 60f, 6, 2);
         camera.position.x = scrPlay.getPlayer().getPosition().x + 200;
         camera.position.y = scrPlay.getPlayer().getPosition().y + 50;
-        camera.position.x = MathUtils.clamp(camera.position.x, 250, 14500);
+        camera.position.x = MathUtils.clamp(camera.position.x, 250, 15000);
         camera.position.y = MathUtils.clamp(camera.position.y, 100, 450);
 //        System.out.println(scrPlay.getPlayer().getPosition().x);
 //        System.out.println(camera.position.x);
