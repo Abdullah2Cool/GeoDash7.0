@@ -117,6 +117,7 @@ public class Player {
         changeImage(2, 1);
         pBody.setTransform(vInitialPos.x / PPM, vInitialPos.y / PPM, 0);
         bBoat = false;
+        bFlipGrav = false;
         world.setGravity(new Vector2(0, -100));
     }
 
