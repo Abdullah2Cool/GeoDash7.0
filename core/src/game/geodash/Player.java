@@ -83,9 +83,12 @@ public class Player {
 
     public void move() {
         pBody.setLinearVelocity(fSpeed, pBody.getLinearVelocity().y);
+        //lock rotation
+        if (bBoat) {
+            pBody.setTransform(pBody.getPosition(), 0);
+        }
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
             if (bBoat) {
-                pBody.setTransform(pBody.getPosition(), 0);
                 pBody.applyForceToCenter(0, 200, false);
             } else if (bJump) {
                 if (bFlipGrav) {
@@ -95,7 +98,32 @@ public class Player {
                 }
                 bJump = false;
             }
-        } else if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT) || Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
+        }
+        //Speed for boats
+        if(nImgNum == 4 || nImgNum == 7){
+            if(fSpeed > 0){
+                fSpeed = 17f;
+            }
+            if(fSpeed < 0){
+                fSpeed = -17f;
+            }
+        }
+        else if(nImgNum == 3){
+            if(fSpeed > 0){
+                fSpeed = 5f;
+            }
+            if(fSpeed < 0){
+                fSpeed = -5f;
+            }
+        }else{
+            if(fSpeed > 0){
+                fSpeed = 9f;
+            }
+            if(fSpeed < 0){
+                fSpeed = -9f;
+            }
+        }
+        if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT) || Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
             fSpeed *= -1;
         }
         if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
@@ -111,6 +139,7 @@ public class Player {
                 bJump = false;
             }
         }
+        
     }
 
     public void reset() {
