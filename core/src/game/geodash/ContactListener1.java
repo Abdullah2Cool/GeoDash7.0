@@ -37,8 +37,6 @@ public class ContactListener1 implements ContactListener {
         }
         if (CheckContact(a, b, sPlayer, sSpike)) {
             bPlayerDead = true;
-
-
         }
 
         if (CheckContact(a, b, sPlayer, sPlatform) && bJump == false) {
