@@ -11,7 +11,7 @@
  </tileset>
  <layer name="Platforms" width="500" height="25">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup name="platforms">
@@ -654,9 +654,6 @@
    <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
   </object>
   <object id="697" x="12750" y="120" rotation="-180">
-   <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
-  </object>
-  <object id="698" x="12780" y="120" rotation="-180">
    <polyline points="0,0 14.3333,-30.6667 30,0 0,0"/>
   </object>
   <object id="701" x="13110" y="270" rotation="-360">
