@@ -61,7 +61,7 @@ public class ContactListener1 implements ContactListener {
                 world.setGravity(new Vector2(0, world.getGravity().y * -1));
                 bFlipGrav = false;
             }
-            System.out.println("Boat Time");
+//            System.out.println("Boat Time");
         }
     }
 
