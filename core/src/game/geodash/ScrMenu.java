@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import box2dLight.RayHandler;
+
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -57,15 +58,13 @@ public class ScrMenu implements Screen {
         batch.end();
 
         if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                System.out.println("hit");
-                bPlay = true;
+            System.out.println("hit");
+            bPlay = true;
             if (bPlay) {
                 game.setScreen(game.scrPlay);
             }
         }
- //    map.draw(game.camera);
-
-
+        //    map.draw(game.camera);
     }
 
     @Override
