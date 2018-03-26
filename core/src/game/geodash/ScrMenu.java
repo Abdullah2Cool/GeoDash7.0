@@ -15,9 +15,8 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 
-/**
- * Created by hafiz on 1/10/2017.
- */
+//test if intellij works at all
+
 public class ScrMenu implements Screen {
 
     private GamGeoDash game;
